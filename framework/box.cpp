@@ -3,7 +3,9 @@
 #include <numbers>
 
 box::box(glm::vec3 max, glm::vec3 min, std::string name = "Quader 1", Color color ={})
-	: max_{ max }, min_{ min }, shape{color, name} {};
+	: max_{ max }, min_{ min }, shape{ color, name } {std::cout << "box constructor\n";};
+box::box()
+	: max_{1,1,1}, min_{0,0,0}, shape{} {std::cout << "box std constructor\n";};
 
 float box::area() const
 {
@@ -15,6 +17,10 @@ float box::volume() const
 }
 std::ostream& box::print(std::ostream& os) const
 {
-	shape::print(os);
-	std::cout << "Minimum: x:" << min_.x << ", y:" << min_.y << ", z:" << min_.z << ", Maximum: x:" << max_.x << ", y:" << max_.y << ", z:" << max_.z;
+	std::cout << "Minimum: x:" << min_.x << ", y:" << min_.y << ", z:" << min_.z << ", Maximum: x:" << max_.x << ", y:" << max_.y << ", z:" << max_.z << " ";
+	return shape::print(os);
+}
+box::~box()
+{
+	std::cout << "box destructor\n";
 }

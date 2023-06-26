@@ -7,6 +7,8 @@ class box : public shape
 {
 public:
 	box(glm::vec3 max, glm::vec3 min, std::string name, Color color);
+	box();
+	~box();
 	float area() const override;
 	float volume() const override;
 	std::ostream& print(std::ostream& os) const override;
